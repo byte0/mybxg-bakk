@@ -1,4 +1,4 @@
-define(['jquery','template','cookie'],function($,template){
+define(['jquery','template','nprogress','cookie'],function($,template,nprogress){
     // 控制左侧菜单的展开和折叠
     $('.navs ul').prev('a').on('click', function () {
         $(this).next().slideToggle();
@@ -32,5 +32,18 @@ define(['jquery','template','cookie'],function($,template){
         // $('.aside .profile').find('h4').text(loginInfo.tc_name);
     }
 
+    // 加载遮罩效果
+    $(document).ajaxStart(function() {
+        // 显示遮罩效果
+        $('.overlay').show();
+    });
+    $(document).ajaxStop(function() {
+        // 隐藏遮罩效果
+        $('.overlay').hide();
+    });
+
+    // 进度条控制
+    nprogress.start();
+    nprogress.done();
     
 });
