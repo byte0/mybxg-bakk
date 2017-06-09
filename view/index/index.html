@@ -54,7 +54,9 @@
         </div>
     </div>
     <?php include('/view/common/script.html'); ?>
-    
+    <script type="text/javascript">
+        requirejs(['index']);
+    </script>
     <script>
         // // 基于准备好的dom，初始化echarts实例
         // var myChart = echarts.init(document.getElementById('main'));
