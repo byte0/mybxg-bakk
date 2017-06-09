@@ -6,7 +6,8 @@ requirejs.config({
         cookie : 'jquery-cookie/jquery.cookie',
         template : 'artTemplate/template-web',
         common : '../js/common',
-        login : '../js/login'
+        login : '../js/login',
+        tealist : '../js/teacher-list'
     },
     shim : {// 兼容非标准模块
         bootstrap : {
