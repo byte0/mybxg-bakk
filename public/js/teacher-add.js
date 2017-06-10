@@ -1,4 +1,4 @@
-define(['jquery','util','template','validate','form'],function($,util,template){
+define(['jquery','util','template','validate','form','datepicker','language'],function($,util,template){
     // 设置导航选中
     util.setMenu('/teacher/list');
     // 获取参数中tc_id

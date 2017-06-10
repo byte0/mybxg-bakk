@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include('/view/common/style.html'); ?>
+    <link rel="stylesheet" type="text/css" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css">
 </head>
 <body>
     
@@ -25,7 +26,6 @@
                 </div>
             </div>
         </div>
-        <abc></abc>
     </div>
     <script type="text/template" id="teacherFormTpl">
         <form id="addTeacherForm" class="form-horizontal col-xs-offset-2">
@@ -51,7 +51,7 @@
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">入职时间</label>
                 <div class="col-xs-4">
-                    <input name="tc_join_date" data-description='tcJoinDate' data-describedby='tcJoinDateId' data-required='true' value="{{tc_join_date}}" type="text" class="form-control input-sm">
+                    <input name="tc_join_date" data-provide='datepicker' data-date-format='yyyy-mm-dd' data-date-language='zh-CN' data-description='tcJoinDate' data-describedby='tcJoinDateId' data-required='true' value="{{tc_join_date}}" type="text" class="form-control input-sm">
                 </div>
                 <div class="col-xs-2" id="tcJoinDateId"></div>
             </div>
