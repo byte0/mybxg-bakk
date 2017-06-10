@@ -15,7 +15,8 @@ requirejs.config({
         login : '../js/login',
         util : '../js/util',
         tealist : '../js/teacher-list',
-        teaadd : '../js/teacher-add'
+        teaadd : '../js/teacher-add',
+        settings : '../js/settings'
     },
     shim : {// 兼容非标准模块
         bootstrap : {
