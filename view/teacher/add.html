@@ -25,6 +25,7 @@
                 </div>
             </div>
         </div>
+        <abc></abc>
     </div>
     <script type="text/template" id="teacherFormTpl">
         <form id="addTeacherForm" class="form-horizontal col-xs-offset-2">
@@ -34,22 +35,25 @@
                 {{/if}}
                 <label for="" class="col-xs-3 control-label">姓名</label>
                 <div class="col-xs-4">
-                    <input name="tc_name" value="{{tc_name}}" type="text" class="form-control input-sm" placeholder="讲师名称">
+                    <input name="tc_name" data-description='tcName' data-describedby='tcNameId' data-required='true' value="{{tc_name}}" type="text" class="form-control input-sm" placeholder="讲师名称">
                 </div>
+                <div class="col-xs-2" id="tcNameId"></div>
             </div>
             {{if !tc_id}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">密码</label>
                 <div class="col-xs-4">
-                    <input name="tc_pass" type="password" class="form-control input-sm">
+                    <input name="tc_pass" data-pattern='^\d{6}$' data-description='tcPass' data-describedby='tcPassId' data-required='true' type="password" class="form-control input-sm">
                 </div>
+                <div class="col-xs-2" id="tcPassId"></div>
             </div>
             {{/if}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">入职时间</label>
                 <div class="col-xs-4">
-                    <input name="tc_join_date" value="{{tc_join_date}}" type="text" class="form-control input-sm">
+                    <input name="tc_join_date" data-description='tcJoinDate' data-describedby='tcJoinDateId' data-required='true' value="{{tc_join_date}}" type="text" class="form-control input-sm">
                 </div>
+                <div class="col-xs-2" id="tcJoinDateId"></div>
             </div>
             {{if !tc_id}}
             <div class="form-group">
@@ -75,7 +79,7 @@
             </div>
             <div class="form-group">
                 <div class="col-xs-7">
-                    <input type="button" id="addTeacherBtn" class="btn btn-success btn-sm pull-right" value="{{operateFlag}}">
+                    <input type="submit" id="addTeacherBtn" class="btn btn-success btn-sm pull-right" value="{{operateFlag}}">
                 </div>                          
             </div>
         </form>

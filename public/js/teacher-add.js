@@ -1,4 +1,4 @@
-define(['jquery','util','template'],function($,util,template){
+define(['jquery','util','template','validate','form'],function($,util,template){
     // 设置导航选中
     util.setMenu('/teacher/list');
     // 获取参数中tc_id
@@ -6,19 +6,54 @@ define(['jquery','util','template'],function($,util,template){
 
     // 提交表单处理
     function submitForm(url){
-        $('#addTeacherBtn').click(function(){
-            $.ajax({
-                type : 'post',
-                url : url,
-                data : $('#addTeacherForm').serialize(),
-                dataType : 'json',
-                success : function(data){
-                    if(data.code == 200){
+        $('#addTeacherForm').validate({
+            sendForm : false,
+            eachInvalidField : function(){
+                console.log(1);
+            },
+            eachValidField : function(){
+                console.log(2);
+            },
+            valid : function(){
+                // 提交表单
+                $(this).ajaxSubmit({
+                    type : 'post',
+                    url : url,
+                    success : function(data){
                         location.href = '/teacher/list';
                     }
+                });
+            },
+            description : {
+                tcName : {
+                    required : '姓名必须填写',
+                    valid : '姓名格式正确'
+                },
+                tcPass : {
+                    required : '密码不能为空',
+                    pattern : '密码必须是六位数字',
+                    valid : '密码可以使用'
+                },
+                tcJoinDate : {
+                    required : '入职日期不能为空',
+                    valid : '日期可以使用'
                 }
-            });
+            }
         });
+
+        // $('#addTeacherBtn').click(function(){
+            // $.ajax({
+            //     type : 'post',
+            //     url : url,
+            //     data : $('#addTeacherForm').serialize(),
+            //     dataType : 'json',
+            //     success : function(data){
+            //         if(data.code == 200){
+            //             location.href = '/teacher/list';
+            //         }
+            //     }
+            // });
+        // });
     }
     
     if(tcId){
