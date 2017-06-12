@@ -20,7 +20,9 @@ requirejs.config({
         tealist : '../js/teacher-list',
         teaadd : '../js/teacher-add',
         settings : '../js/settings',
-        courselist : '../js/course-list'
+        courselist : '../js/course-list',
+        courseadd : '../js/course-add',
+        coursebasic : '../js/course-basic'
     },
     shim : {// 兼容非标准模块
         bootstrap : {
