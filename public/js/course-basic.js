@@ -47,6 +47,11 @@ define(['jquery','template','util','ckeditor','validate','form'],function($,temp
             $('#basicForm').validate({
                 sendForm : false,
                 valid : function(){
+                    // 更新富文本内容
+                    for(var instance in CKEDITOR.instances){
+                        CKEDITOR.instances[instance].updateElement();
+                    }
+                    // 提交表单
                     $(this).ajaxSubmit({
                         type : 'post',
                         url : '/api/course/update/basic',
